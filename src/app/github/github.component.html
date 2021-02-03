@@ -1,0 +1,60 @@
+<!-- <div class="github">
+    <input type="text" placeholder="Name"  (keyup)="onChangeEvent($event)" #myInput/>
+    <button (click)='usersNameSearch(myInput.value)'>Search</button>
+
+    <img src="{{state.avatar_url}}">
+    <h1>{{state.login}}</h1>
+    <h1>{{state.name}}</h1>
+    <h1>{{state.followers}}</h1>
+    <h1>{{state.following}}</h1>
+    <h1>{{state.repos_url}}</h1>
+</div> -->
+<div class="github">
+    <div>
+        <a href="{{stateRepo.url}}">{{stateRepo.name}}</a>
+      </div>
+    <mat-form-field class="example-full-width">
+        <mat-label>User Name</mat-label>
+        <input matInput placeholder="Ex. Farhan" #myInput>
+    </mat-form-field>
+    <button mat-raised-button class="BasicButton" (click)='usersNameSearch(myInput.value)'>Search</button>
+</div>
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image">
+        <img mat-card-image src="{{state.avatar_url}}" alt="Github">
+      </div>
+
+      <div>
+          <div *ngIf="state.login; then showLogin; else dontShowLogin"></div>
+            <ng-template #showLogin>
+                <mat-card-title>{{state.login}}</mat-card-title>
+            </ng-template>
+            <ng-template #dontShowLogin>
+                <mat-card-title>Demo User</mat-card-title>
+            </ng-template>
+
+
+            <div *ngIf="state.name; then show; else dontShow"></div>
+            <ng-template #show>
+                <mat-card-subtitle><b>username:</b> {{state.name}}</mat-card-subtitle>
+            </ng-template>
+            <ng-template #dontShow>
+                <mat-card-subtitle><b>username:</b> Demo Name</mat-card-subtitle>
+            </ng-template>
+      </div>
+
+      
+
+    </mat-card-header>
+    <img mat-card-image src="{{state.avatar_url}}" alt="Github">
+    <mat-card-content>
+        <div>
+            <p>Followers: {{state.followers}}</p>
+            <p>Following: {{state.following}}</p>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+
+

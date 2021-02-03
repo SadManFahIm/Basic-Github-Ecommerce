@@ -1,0 +1,25 @@
+<div class="popUp">
+    <h2 style="color: brown;">Cart Informations</h2>
+    <mat-card class="row">
+        <h4><b>Total Price:</b>  <span style="color: brown; font-weight: 500;">   ${{priceAndQuantity.totalPrice}}</span></h4>
+        <h4><b>Total Quantity:</b><span style="color: brown; font-weight: 500;">  {{priceAndQuantity.totalQuantity}}</span></h4>
+    </mat-card>
+      <div *ngIf="cartInfo===''; then  dontShowItem; else showItem"></div>
+      <ng-template #showItem>
+        <mat-card>
+            <div class="row">
+                <h4><b>Name</b></h4>
+                <h4><b>Quantity</b></h4>
+                <h4><b>Price</b></h4>
+            </div>
+          <div *ngFor ="let item of cartInfo" >
+            <div class="row1">
+                <span fxFlex="45" class="product-name">{{item.productname}}</span>
+                <span fxFlex="50" class="product-quantity"><mat-icon (click)="onClickItem(item,'remove')">remove</mat-icon>{{item.quantity}}<mat-icon style="margin-left: .5rem;" (click)="onClickItem(item,'add')">add</mat-icon></span>
+                <span fxFlex="10" class="product-price"><b style="float:right;">${{item.price}}</b></span>
+            </div>
+          </div>
+        </mat-card>
+      </ng-template>
+      <ng-template #dontShowItem><p style="text-align: center;">You did not add products</p></ng-template>
+</div>

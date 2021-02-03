@@ -1,0 +1,130 @@
+<!-- <div > -->
+<div class="filtersCard">
+    <div  class="inner">
+        <button (click)="onChoices('all')" mat-mini-fab color="" aria-label="Example icon button with a home icon">
+            <mat-icon style="color: #B71C1C;">collections</mat-icon>
+        </button>
+        <button (click)="onChoices('fav')" mat-mini-fab color="" aria-label="Example icon button with a heart icon">
+            <mat-icon  class="favoriteIcon">favorite</mat-icon>
+        </button>
+        <button mat-mini-fab color="" (click)="onChoices('notfav')" aria-label="Example icon button with a heart icon">
+            <mat-icon  class="favoriteIcon">favorite_border</mat-icon>
+        </button>
+    </div>
+    <div class="outer" appearance="outline">
+        <input type="text"  placeholder="Search.." [(ngModel)] = "searchByName" class="input">
+    </div>
+</div>   
+
+<div class="Cards">
+    <div *ngIf="isFav;then showFavCards"></div>
+    <ng-template #showFavCards>
+        <div *ngFor = 'let item of FoundFav'>
+            <mat-card class="example-card" id="Shirt">
+                <mat-card-header>
+                    <mat-card-title>{{item.productname}}</mat-card-title>
+                    <mat-card-subtitle>{{item.id}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image style="height: 220px;" src="{{item.imageurl}}" alt="Photo of a Shiba Inu">
+                <mat-card-actions>
+                <button mat-button (click)="AddToFavorite(item)">
+                    <div *ngIf="item.favorite;then showIcon; else dontShowIcon"></div>
+                    <ng-template #showIcon >
+                        <mat-icon class="favoriteIcon">favorite</mat-icon>
+                    </ng-template>
+                    <ng-template #dontShowIcon>
+                        <mat-icon class="favoriteIcon">favorite_border</mat-icon>
+                    </ng-template>
+                    
+                </button>
+                <h5><b>$</b> {{item.price}}</h5>
+                <button mat-button (click)="AddToCard(item)">
+                    <mat-icon class="cartIcon">shopping_cart</mat-icon>
+                </button>
+                </mat-card-actions>
+                <div class="row StyleOfIncDecQuantity">
+                    <span (click)="IncrementOrDecrement(item,dec='dec')"><mat-icon class="favoriteIcon DEC">remove</mat-icon></span>
+                    <app-addorremove [quantity]="item.quantity"></app-addorremove>
+                    <span (click)="IncrementOrDecrement(item,inc='inc')"><mat-icon class="favoriteIcon INC">add</mat-icon></span>
+                </div>
+            </mat-card>
+        </div>
+    </ng-template>
+    <div *ngIf="isNotFav;then showNotFavCards"></div>
+    <ng-template #showNotFavCards>
+        <div  *ngFor = 'let item of NotFoundFav'>
+            <mat-card class="example-card" id="Shirt">
+                <mat-card-header>
+                    <mat-card-title>{{item.productname}}</mat-card-title>
+                    <mat-card-subtitle>{{item.id}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image style="height: 220px;" src="{{item.imageurl}}" alt="Photo of a Shiba Inu">
+                <mat-card-actions>
+                <button mat-button (click)="AddToFavorite(item)">
+                    <div *ngIf="item.favorite;then showIcon; else dontShowIcon"></div>
+                    <ng-template #showIcon >
+                        <mat-icon class="favoriteIcon">favorite</mat-icon>
+                    </ng-template>
+                    <ng-template #dontShowIcon>
+                        <mat-icon class="favoriteIcon">favorite_border</mat-icon>
+                    </ng-template>
+                    
+                </button>
+                <h5><b>$</b> {{item.price}}</h5>
+                <button mat-button (click)="AddToCard(item)">
+                    <mat-icon class="cartIcon">shopping_cart</mat-icon>
+                </button>
+                </mat-card-actions>
+                <div class="row StyleOfIncDecQuantity">
+                    <span (click)="IncrementOrDecrement(item,dec='dec')"><mat-icon class="favoriteIcon DEC">remove</mat-icon></span>
+                    <app-addorremove [quantity]="item.quantity"></app-addorremove>
+                    <span (click)="IncrementOrDecrement(item,inc='inc')"><mat-icon class="favoriteIcon INC">add</mat-icon></span>
+                </div>
+            </mat-card>
+        </div>
+    </ng-template>
+    <div *ngIf="products !=='' && allItems; then showItem"></div>
+    <ng-template #showItem>
+        <div  *ngFor = 'let item of pageSlice | filter:searchByName'>
+            <mat-card class="example-card" id="Shirt">
+                <mat-card-header>
+                    <mat-card-title>{{item.productname}}</mat-card-title>
+                    <mat-card-subtitle>{{item.id}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image style="height: 220px;" src="{{item.imageurl}}" alt="Photo of a Shiba Inu">
+                <mat-card-actions>
+                <button mat-button (click)="AddToFavorite(item)">
+                    <div *ngIf="item.favorite;then showIcon; else dontShowIcon"></div>
+                    <ng-template #showIcon >
+                        <mat-icon class="favoriteIcon">favorite</mat-icon>
+                    </ng-template>
+                    <ng-template #dontShowIcon>
+                        <mat-icon class="favoriteIcon">favorite_border</mat-icon>
+                    </ng-template>
+                    
+                </button>
+                <h5><b>$</b> {{item.price}}</h5>
+                <button mat-button (click)="AddToCard(item)">
+                    <mat-icon class="cartIcon">shopping_cart</mat-icon>
+                </button>
+                </mat-card-actions>
+                <div class="row StyleOfIncDecQuantity">
+                    <span (click)="IncrementOrDecrement(item,dec='dec')"><mat-icon class="favoriteIcon DEC">remove</mat-icon></span>
+                    <app-addorremove [quantity]="item.quantity"></app-addorremove>
+                    <span (click)="IncrementOrDecrement(item,inc='inc')"><mat-icon class="favoriteIcon INC">add</mat-icon></span>
+                </div>
+            </mat-card>
+        </div>
+    </ng-template>
+    <!-- <ng-template #dontShowItem>There is no products</ng-template> -->
+
+</div>
+<footer>
+    <div *ngIf = "allItems">
+        <mat-paginator [length]="products.length"
+            [pageSize]="4"
+            [pageSizeOptions]="[4,12,24]"
+            (page)="onPageChange($event)">
+        </mat-paginator>
+    </div>
+</footer>

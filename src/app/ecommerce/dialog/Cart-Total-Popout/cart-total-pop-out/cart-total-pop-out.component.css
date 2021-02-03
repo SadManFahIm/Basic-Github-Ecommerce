@@ -1,0 +1,30 @@
+.popUp{
+    margin:2rem;
+}
+.popUp h2{
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.row{
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.row1{
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.product-name{
+    flex:2;
+}
+.product-quantity{
+    flex:1.5;
+}
+.product-price{
+    flex:1;
+}
+mat-icon{
+    font-size: .9rem;
+    cursor: pointer;
+}

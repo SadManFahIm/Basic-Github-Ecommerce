@@ -1,0 +1,50 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.HeadingNav{
+  position:absolute;
+  right:100px;
+}
+
+.hrStyle{
+  margin-top: -.0999rem;
+}
+
+.popUp{
+  margin: .5rem;
+  padding: 5px;
+}
+.row{
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: bold;
+  color:black;
+}
+
+
+
+.active-link{
+  color: brown;
+  font-weight: bold;
+}
+
+.haha{
+  display: flex;
+  justify-content: space-between;
+}
+

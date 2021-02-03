@@ -1,0 +1,45 @@
+.content{
+    margin: 3rem;
+}
+
+/* Structure */
+table {
+    width: 100%;
+}
+  
+.mat-form-field {
+    font-size: 14px;
+    width: 60%;
+}
+
+.UpperPortion{
+    margin-bottom: 3rem;
+}
+
+.textAlign{
+    text-align: center;
+}
+
+.example-card {
+    margin: .9rem;
+}
+
+.image{
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    border-radius: 50%;
+}
+th{
+    font-weight: bold;
+    font-size: .9rem;
+    color: black;
+}
+.forCursor{
+    cursor: pointer;
+}
+mat-icon:hover{
+    color: brown;
+    -ms-transform: rotate(20deg); /* IE 9 */
+    transform: rotate(20deg);
+}

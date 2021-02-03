@@ -1,0 +1,20 @@
+.DeleteModal{
+    padding: 10px;
+    /* margin-top:3rem;
+    margin-bottom:3rem;
+    margin-left:2rem;
+    margin-right:2rem; */
+    margin:1rem;
+    border-radius: 3px;
+}
+.DeleteModal p {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.DeleteModal span {
+    color: brown;
+}
+.yes-no{
+    display: flex;
+    justify-content: space-evenly;
+}

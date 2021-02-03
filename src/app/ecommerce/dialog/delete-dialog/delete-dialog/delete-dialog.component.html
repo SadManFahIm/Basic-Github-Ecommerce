@@ -1,0 +1,14 @@
+<div class="DeleteModal">
+    <p>Are you sure want to delete <span> <del>{{data.productname}}</del></span> ?</p>
+</div>
+
+
+    <div class="yes-no">
+        <button mat-mini-fab mat-dialog-close style="background-color: #D82034;">No</button>
+        <button mat-dialog-close mat-mini-fab color="primary" (click)="DeleteItem()" aria-label="Example icon button with a delete icon">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <!-- <button mat-button (click)="DeleteItem()" mat-raised-button  color="warn">Yes</button> -->
+    </div>
+
+

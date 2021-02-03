@@ -1,0 +1,17 @@
+.cart-dialog {
+    margin: 1rem;
+}
+.cart-dialog h2{
+    margin-bottom: 2rem;
+}
+.save-cancel {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+mat-form-field{
+    width: 100%;
+}
+mat-hint{
+    color: red;
+}

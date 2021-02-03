@@ -1,0 +1,102 @@
+body {
+    background-color: whitesmoke;
+}
+.Cards{
+    background-color: whitesmoke;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.filtersCard{
+    background-color: whitesmoke;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+.inner {
+    display: flex;
+    flex:1;
+    justify-content: space-evenly;
+    padding:5px;
+}
+.outer{
+    flex:.5;
+}
+.example-card {
+    max-width: 300px;
+    margin: .9rem;
+}
+  
+.example-header-image {
+    background-size: cover;
+}
+
+mat-card-actions{
+    display: flex;
+    justify-content: space-around;
+}
+
+.favoriteIcon{
+    color: #b71c1c;
+}
+
+.cartIcon{
+    color:#1A237E;
+}
+.StyleOfIncDecQuantity {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    background: #1A237E;
+    color: aliceblue;
+    border-radius: 13px;
+    padding-top: .5rem;
+}
+.INC{
+    cursor: pointer;
+    color: aliceblue;
+}
+.DEC{
+    cursor: pointer;
+    color: aliceblue;
+}
+.mat-form-field {
+    font-size: 14px;
+    width: 30%;
+}
+
+/* .input{
+    width: 50%;
+    height: 24px;
+    border-radius: 2px;
+    padding: 5px;
+} */
+input[type=text] {
+    width: 230px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+  
+input[type=text]:focus {
+    width: 100%;
+}
+
+mat-paginator{
+    margin-top: 3rem;
+    text-align: center;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+}

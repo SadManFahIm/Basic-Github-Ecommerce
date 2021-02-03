@@ -1,0 +1,69 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>
+      <img
+      width="40"
+      alt="Angular Logo"
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+      />
+    </mat-toolbar> <hr class="hrStyle">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Home</a>
+      <a mat-list-item routerLink="management" routerLinkActive="active-link">Management</a>
+      <a mat-list-item routerLink="github" routerLinkActive="active-link">Github</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="HeadingNav">
+      <p style="margin-top: 1rem;">
+        <!-- [matMenuTriggerFor]="menu"-->
+        <mat-icon  (click)="openBottomSheet()"  style="cursor: pointer;" matBadge="{{cartCount}}" matBadgeColor="warn">add_shopping_cart</mat-icon>
+      </p>
+      </span>
+    </mat-toolbar>
+    <ng-content></ng-content>
+   
+    <mat-menu #menu="matMenu">
+      <div class="popUp">
+        <div class="row">
+            <h4><b>Total Price:</b>  ${{totalPrice}}</h4>
+            <h4><b>Total Quantity:</b> {{totalQuantity}}</h4>
+        </div>
+      <table border="1px solid black">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+          <div *ngIf="cartInfo===''; then  dontShowItem; else showItem"></div>
+          <ng-template #showItem>
+              <tr *ngFor ="let item of cartInfo" style="text-align: center;">
+                <td>{{item.productname}}</td>
+                <td >{{item.quantity}}</td>
+                <td ><b>$</b> {{item.price}}</td>
+              </tr>
+          </ng-template>
+          <ng-template #dontShowItem><p style="text-align: center;">You did not add products</p></ng-template>
+        </tbody>
+      </table>
+      </div>
+    </mat-menu>
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
